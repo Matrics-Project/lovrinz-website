@@ -1,6 +1,6 @@
 import { useState } from 'react'
 
-import Layout from '../components/Layout'
+import Layout from '../Components/Layout'
 
 export default function Login() {
     const [Email, setEmail] = useState('johndoe@mail.com')

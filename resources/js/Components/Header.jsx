@@ -1,7 +1,8 @@
-import { Transition } from '@headlessui/react'
-import { useState } from 'react'
+import {Transition} from '@headlessui/react'
+import {Link} from '@inertiajs/react';
+import {useState} from 'react'
 
-export default function Header({ setIsOpen }) {
+export default function Header({setIsOpen}) {
     const [DropdownOpen, setDropdownOpen] = useState(false)
 
     return (
@@ -90,12 +91,13 @@ export default function Header({ setIsOpen }) {
                             >
                                 Products
                             </a>
-                            <a
-                                to="/"
+                            <Link
+                                href={route("logout")}
+                                method="post"
                                 className="block px-4 py-2 text-sm text-gray-700 hover:bg-indigo-600 hover:text-white"
                             >
                                 Log out
-                            </a>
+                            </Link>
                         </div>
                     </Transition>
                 </div>
