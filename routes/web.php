@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BooksController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
@@ -12,6 +13,11 @@ Route::get('/', function () {
         'laravelVersion' => Application::VERSION,
         'phpVersion' => PHP_VERSION,
     ]);
+});
+
+Route::resource('/books', BooksController::class)->middleware(['auth']);
+
+Route::get('/test', function () {
 });
 
 Route::inertia('/admin/dashboard', 'Dashboard');
