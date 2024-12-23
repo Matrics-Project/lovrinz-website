@@ -20,8 +20,18 @@ Route::resource('/books', BooksController::class)->middleware(['auth']);
 Route::get('/test', function () {
 });
 
+Route::inertia('/', 'Home');
+
+// Frontend
 Route::inertia('/admin/dashboard', 'Dashboard');
 Route::inertia('/admin/login', 'Login');
+Route::inertia('/admin/form', 'Form');
+Route::inertia('/admin/FormEdit', 'FormEdit');
+
+Route::inertia('/guest/test', 'Test');
+
+Route::inertia('/guest/home', 'Home');
+// endFrontend
 
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
