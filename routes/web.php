@@ -6,23 +6,24 @@ use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
-Route::get('/', function () {
-    return Inertia::render('Welcome', [
-        'canLogin' => Route::has('login'),
-        'canRegister' => Route::has('register'),
-        'laravelVersion' => Application::VERSION,
-        'phpVersion' => PHP_VERSION,
-    ]);
-});
+// Laravel root pages
+/*Route::get('/', function () {*/
+/*    return Inertia::render('Welcome', [*/
+/*        'canLogin' => Route::has('login'),*/
+/*        'canRegister' => Route::has('register'),*/
+/*        'laravelVersion' => Application::VERSION,*/
+/*        'phpVersion' => PHP_VERSION,*/
+/*    ]);*/
+/*});*/
 
 Route::resource('/books', BooksController::class)->middleware(['auth']);
 
 Route::get('/test', function () {
 });
 
+// Frontend
 Route::inertia('/', 'Home');
 
-// Frontend
 Route::inertia('/admin/dashboard', 'Dashboard');
 Route::inertia('/admin/login', 'Login');
 Route::inertia('/admin/form', 'Form');

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Books;
 use Illuminate\Http\Request;
+use Inertia\Inertia;
 use Symfony\Component\Console\Input\Input;
 
 class BooksController extends Controller
@@ -14,10 +15,10 @@ class BooksController extends Controller
     public function index()
     {
         $books = Books::all();
-        /*return Inertia::render("Books/Index", [*/
-        /*    'books' => $books*/
-        /*]);*/
-        return view('books.index', compact('books'));
+        return Inertia::render("Books/Dashboard", [
+            'books' => $books
+        ]);
+        /*return view('books.index', compact('books'));*/
     }
 
     /**
