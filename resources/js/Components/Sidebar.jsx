@@ -20,7 +20,7 @@ export default function Sidebar({ IsOpen, setIsOpen }) {
                 </a>
 
                 <nav className="mt-10">
-                    <a className="flex items-center px-6 py-2 mt-4 duration-200 border-l-4" href="/admin/dashboard">
+                    <a className="flex items-center px-6 py-2 mt-4 duration-200 border-l-4" href={route('books.index')}>
                         <svg className="w-5 h-5" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path
                                 d="M2 10C2 5.58172 5.58172 2 10 2V10H18C18 14.4183 14.4183 18 10 18C5.58172 18 2 14.4183 2 10Z"
@@ -32,7 +32,7 @@ export default function Sidebar({ IsOpen, setIsOpen }) {
                             />
                         </svg>
 
-                        <span className="mx-4">Dashboard</span>
+                        <span className="mx-4">Books</span>
                     </a>
                     <a className="flex items-center px-6 py-2 mt-4 duration-200 border-l-4" href="/admin/form">
                         <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">

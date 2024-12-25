@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import Swal from 'sweetalert2'
 import withReactContent from 'sweetalert2-react-content'
 
-import Layout from '../components/Layout'
+import Layout from '@/Components/Layout'
 function App() {
     const [Book, setBook] = useState({
         title: '',

@@ -4,6 +4,7 @@ import withReactContent from 'sweetalert2-react-content'
 
 import Layout from '@/Components/Layout'
 import { router } from '@inertiajs/react'
+
 function App() {
     const [Book, setBook] = useState({
         title: '',
@@ -42,8 +43,9 @@ function App() {
         e.preventDefault()
         if (validateForm()) {
             console.log('createBook: ', JSON.parse(JSON.stringify(Book)))
+            console.log(Book)
 
-            const bookForm = new FormData
+            const bookForm = new FormData()
             bookForm.append('title', Book.title)
             bookForm.append('author', Book.author)
             bookForm.append('publication_year', Book.publication_year)
@@ -53,7 +55,7 @@ function App() {
             bookForm.append('price', Book.price)
             bookForm.append('img', Book.image)
 
-            router.post(route('books.store'), bookForm)
+            //router.post(route('books.store'), bookForm)
 
             callAlert()
         } else {
@@ -189,7 +191,13 @@ function App() {
                                             name="image"
                                             placeholder="pick the image of the book"
                                             value={Book.image}
-                                            onChange={handleInputChange}
+                                            onChange={e => {
+                                                setBook(prevBook => ({
+                                                    ...prevBook,
+                                                    image: e.target.title,
+                                                }))
+                                            }
+                                            }
                                         />
                                     </div>
                                 </div>
