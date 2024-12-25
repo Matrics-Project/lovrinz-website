@@ -41,13 +41,13 @@ function App() {
             <div className="bg-[#F7F9F2] overflow-auto py-8 ">
                 <h3 className="text-3xl font-semibold text-gray-700 flex justify-center mt-4">Form Edit Book</h3>
                 <div className="mt-8">
-                    <div className="mt-4">
-                        <div className="p-6 bg-white rounded-md shadow-md mx-40">
+                    <div className="mt-4 mx-auto max-w-[1324px]">
+                        <div className="p-6 bg-white rounded-md shadow-md md:mx-32 mx-5">
                             <h2 className="text-lg font-semibold text-gray-700 capitalize">Edit List Book</h2>
 
                             <form onSubmit={book}>
                                 <div className="grid grid-cols-1 gap-6 mt-4">
-                                    <div className="flex flex-col w-[50%]">
+                                    <div classname="flex flex-col w-[100%]">
                                         <label className="text-gray-700" htmlFor="title">
                                             Title Book
                                         </label>
@@ -61,7 +61,7 @@ function App() {
                                         />
                                     </div>
 
-                                    <div className="flex flex-col w-[50%]">
+                                    <div className="flex flex-col w-[100%]">
                                         <label className="text-gray-700" htmlFor="description">
                                             Description
                                         </label>
@@ -75,7 +75,7 @@ function App() {
                                         />
                                     </div>
 
-                                    <div className="flex flex-col w-[15%]">
+                                    <div className="flex flex-col w-max">
                                         <label className="text-gray-700" htmlFor="category">
                                             Category
                                         </label>
@@ -94,7 +94,7 @@ function App() {
                                         </select>
                                     </div>
 
-                                    <div className="flex flex-col w-[50%]">
+                                    <div className="flex flex-col w-[100%]">
                                         <label className="text-gray-700" htmlFor="author">
                                             Author
                                         </label>
@@ -108,7 +108,7 @@ function App() {
                                         />
                                     </div>
 
-                                    <div className="flex flex-col w-[50%]">
+                                    <div className="flex flex-col w-[100%]">
                                         <label className="text-gray-700" htmlFor="pages">
                                             Pages
                                         </label>
@@ -122,7 +122,7 @@ function App() {
                                         />
                                     </div>
 
-                                    <div className="flex flex-col w-[50%]">
+                                    <div className="flex flex-col w-[100%]">
                                         <label className="text-gray-700" htmlFor="stock">
                                             Stock
                                         </label>
@@ -135,7 +135,7 @@ function App() {
                                             onChange={handleInputChange}
                                         />
                                     </div>
-                                    <div className="flex flex-col w-[50%]">
+                                    <div className="flex flex-col w-[100%]">
                                         <label className="text-gray-700" htmlFor="image">
                                             Image
                                         </label>
