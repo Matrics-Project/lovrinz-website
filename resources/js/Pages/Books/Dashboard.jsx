@@ -1,10 +1,11 @@
 import Layout from '@/Components/Layout'
+import { router } from '@inertiajs/react'
 import Swal from 'sweetalert2'
 import withReactContent from 'sweetalert2-react-content'
 
 const MySwal = withReactContent(Swal)
 
-const confirmDelete = () => {
+const confirmDelete = id => {
     MySwal.fire({
         title: 'Are you sure?',
         text: 'Do you really want to delete this data?',
@@ -22,17 +23,23 @@ const confirmDelete = () => {
                 icon: 'success',
             })
             // Add your deletion logic here
+            router.delete(route('books.destroy', id))
         }
     })
 }
 
-export default function Dashboard({books}) {
+export default function Dashboard({ books }) {
     return (
         <Layout>
             <main className="flex-1 overflow-x-hidden overflow-y-auto bg-[#F7F9F2]">
                 <div className="container mx-auto px-6 py-8">
                     <div>
-                        <h3 className="text-3xl font-medium text-gray-700">Dashboard</h3>
+                        <div className="text-red-700 flex justify-between items-center">
+                            <h3 className="text-3xl font-medium text-gray-700">Dashboard</h3>
+                            <a className="text-gray-100 font-extrabold py-2 px-7 bg-green-300 rounded-lg" href={route('books.create')}>
+                                Tambah Buku
+                            </a>
+                        </div>
                         <div className="mt-8"></div>
 
                         <div className="flex flex-col mt-8">
@@ -63,12 +70,14 @@ export default function Dashboard({books}) {
                                         </thead>
 
                                         <tbody className="bg-white">
-                                            {books.map(book =>
+                                            {books.map(book => (
                                                 <tr key={book.id}>
                                                     <td className="px-6 py-4 border-b border-gray-200 whitespace-nowrap">
                                                         <div className="flex items-center">
                                                             <div className="ml-4">
-                                                                <div className="text-sm leading-5 text-gray-500">{book.title}</div>
+                                                                <div className="text-sm leading-5 text-gray-500">
+                                                                    {book.title}
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </td>
@@ -86,15 +95,21 @@ export default function Dashboard({books}) {
                                                         <div className="text-sm leading-5 text-gray-500">{book.price}</div>
                                                     </td>
                                                     <td className="flex gap-8 px-6 py-4 text-sm font-medium leading-5 text-right whitespace-nowrap">
-                                                        <a href="/admin/FormEdit" className="text-indigo-600 hover:text-indigo-900">
+                                                        <a
+                                                            href="/admin/FormEdit"
+                                                            className="text-indigo-600 hover:text-indigo-900"
+                                                        >
                                                             Edit
                                                         </a>
-                                                        <button onClick={confirmDelete} className="text-red-600 hover:text-red-900">
+                                                        <button
+                                                            onClick={() => confirmDelete(book.id)}
+                                                            className="text-red-600 hover:text-red-900"
+                                                        >
                                                             Delete
                                                         </button>
                                                     </td>
                                                 </tr>
-                                            )}
+                                            ))}
                                         </tbody>
                                     </table>
                                 </div>

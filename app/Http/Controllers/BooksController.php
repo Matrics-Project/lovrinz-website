@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Books;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use Inertia\Inertia;
 use Symfony\Component\Console\Input\Input;
 
@@ -26,7 +27,8 @@ class BooksController extends Controller
      */
     public function create()
     {
-        return view('books.create');
+        return Inertia::render("Books/CreateForm");
+        /*return view('books.create');*/
     }
 
     /**
@@ -42,9 +44,14 @@ class BooksController extends Controller
             'page_count' => "required|numeric",
             'description' => "required",
             'price' => "required|numeric",
-            'img' => "required",
+            'img' => "required|image|mimes:jpeg,png,jpg,gif",
             /*'url' => "required",*/
         ]);
+
+        $image = $request->file('img');
+        $imagename = time() . "_" . $image->getClientOriginalName();
+
+        $imagepath = $image->storeAs('public/images/books', $imagename);
 
         $bookArr = [
             'title' => $request->title,
@@ -55,9 +62,10 @@ class BooksController extends Controller
             'page_count' => $request->page_count,
             'description' => $request->description,
             'price' => $request->price,
-            'img' => $request->img,
-            'url' => $request->img,
+            'img' => $imagename,
+            'url' => url('images/books/').$imagename,
         ];
+
         $book = Books::create(array_filter($bookArr, 'strlen'));
         return redirect()->route('books.index');
     }
@@ -75,7 +83,7 @@ class BooksController extends Controller
      */
     public function edit(string $id)
     {
-        $book = Books::find($id);
+        $book = Books::findOrFail($id);
         return view("books.edit", compact('book'));
     }
 
@@ -118,6 +126,9 @@ class BooksController extends Controller
     public function destroy(string $id)
     {
         $book = Books::find($id);
+        if (Storage::disk("public")->exists("images/books/".$book->img)){
+            Storage::disk("public")->delete("images/books/".$book->img);
+        }
         $book->delete();
         return redirect(route('books.index'));
     }
