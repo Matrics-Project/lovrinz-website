@@ -8,7 +8,7 @@ export default function Sidebar({ IsOpen, setIsOpen }) {
 
             <div
                 className={
-                    'fixed inset-y-0 left-0 z-30 w-64 overflow-y-auto transition duration-300 transform bg-[#F19ED2] lg:translate-x-0 lg:static lg:inset-0 ' +
+                    'fixed inset-y-0 left-0 z-30 w-64 overflow-y-auto transition duration-300 transform bg-[#6c757d] lg:translate-x-0 lg:static lg:inset-0 ' +
                     (IsOpen ? 'translate-x-0 ease-out' : '-translate-x-full ease-in')
                 }
             >

@@ -21,7 +21,6 @@ const confirmDelete = () => {
                 text: 'Your data has been deleted.',
                 icon: 'success',
             })
-            // Add your deletion logic here
         }
     })
 }
@@ -42,7 +41,7 @@ export default function Dashboard() {
                                         <thead>
                                             <tr>
                                                 <th className="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-50">
-                                                    Title Book
+                                                    Title Books
                                                 </th>
                                                 <th className="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-50">
                                                     Category
@@ -67,22 +66,22 @@ export default function Dashboard() {
                                                 <td className="px-6 py-4 border-b border-gray-200 whitespace-nowrap">
                                                     <div className="flex items-center">
                                                         <div className="ml-4">
-                                                            <div className="text-sm leading-5 text-gray-500">..</div>
+                                                            <div className="text-sm leading-5 text-gray-500">Dilan 1990</div>
                                                         </div>
                                                     </div>
                                                 </td>
 
                                                 <td className="px-6 py-4 border-b border-gray-200 whitespace-nowrap">
-                                                    <div className="text-sm leading-5 text-gray-500">..</div>
+                                                    <div className="text-sm leading-5 text-gray-500">Romance</div>
                                                 </td>
                                                 <td className="px-6 py-4 border-b border-gray-200 whitespace-nowrap">
-                                                    <div className="text-sm leading-5 text-gray-500">..</div>
+                                                    <div className="text-sm leading-5 text-gray-500">Pidi Baiq</div>
                                                 </td>
                                                 <td className="px-6 py-4 text-sm leading-5 text-gray-500 border-b border-gray-200 whitespace-nowrap">
-                                                    ..
+                                                    333 
                                                 </td>
                                                 <td className="px-6 py-4 border-b border-gray-200 whitespace-nowrap">
-                                                    <div className="text-sm leading-5 text-gray-500">..</div>
+                                                    <div className="text-sm leading-5 text-gray-500">120 pcs</div>
                                                 </td>
                                                 <td className="flex gap-8 px-6 py-4 text-sm font-medium leading-5 text-right whitespace-nowrap">
                                                     <a href="/admin/FormEdit" className="text-indigo-600 hover:text-indigo-900">
