@@ -33,16 +33,32 @@ function App() {
             ...prevBook,
             [name]: files ? files[0] : value,
         }))
+        if (files) {
+            updateImage(getImgUrl(files[0]), "bookImg")
+        }
+    }
+
+    const getImgUrl = (files) => {
+        if (typeof files == 'object') {
+            const url = URL.createObjectURL(files)
+            return url
+        } else {
+            return "nothing"
+        }
+    }
+
+    const updateImage = (url, idImg) => {
+        const img = document.getElementById(idImg)
+        img.src = url
     }
 
     const validateForm = () => {
         return Object.values(Book).every(value => value !== '')
     }
 
-    const book = e => {
+    const createBook = e => {
         e.preventDefault()
         if (validateForm()) {
-            console.log('createBook: ', JSON.parse(JSON.stringify(Book)))
             console.log(Book)
 
             const bookForm = new FormData()
@@ -76,7 +92,7 @@ function App() {
                         <div className="p-6 bg-white rounded-md shadow-md md:mx-32 mx-5">
                             <h2 className="text-lg font-semibold text-gray-700 capitalize">Create List Book</h2>
 
-                            <form onSubmit={book} encType="multipart/form-data">
+                            <form onSubmit={createBook} encType="multipart/form-data">
                                 <div className="grid grid-cols-1 gap-6 mt-4">
                                     <div className="flex flex-col w-[100%]">
                                         <label className="text-gray-700" htmlFor="title">
@@ -180,18 +196,21 @@ function App() {
                                             onChange={handleInputChange}
                                         />
                                     </div>
-                                    <div className="flex flex-col w-[100%]">
-                                        <label className="text-gray-700" htmlFor="image">
-                                            Image
-                                        </label>
-                                        <input
-                                            className="w-full mt-2 border-gray-200 rounded-md focus:border-indigo-600 focus:ring focus:ring-opacity-40 focus:ring-indigo-500"
-                                            type="file"
-                                            accept=".jpg,.png,.jpeg"
-                                            name="image"
-                                            placeholder="pick the image of the book"
-                                            onChange={handleInputChange}
-                                        />
+                                    <div className="flex">
+                                        <div className="flex flex-col w-[100%]">
+                                            <label className="text-gray-700" htmlFor="image">
+                                                Image
+                                            </label>
+                                            <input
+                                                className="w-full mt-2 border-gray-200 rounded-md focus:border-indigo-600 focus:ring focus:ring-opacity-40 focus:ring-indigo-500"
+                                                type="file"
+                                                accept=".jpg,.png,.jpeg"
+                                                name="image"
+                                                placeholder="pick the image of the book"
+                                                onChange={handleInputChange}
+                                            />
+                                        </div>
+                                        <img src="zero" id="bookImg" className="w-1/2 " alt=" " />
                                     </div>
                                 </div>
 
