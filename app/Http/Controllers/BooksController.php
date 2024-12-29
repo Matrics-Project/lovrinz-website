@@ -51,7 +51,7 @@ class BooksController extends Controller
         $image = $request->file('img');
         $imagename = time() . "_" . $image->getClientOriginalName();
 
-        $imagepath = $image->storeAs('public/images/books', $imagename);
+        $image->storeAs('public/images/books', $imagename);
 
         $bookArr = [
             'title' => $request->title,
@@ -125,7 +125,7 @@ class BooksController extends Controller
      */
     public function destroy(string $id)
     {
-        $book = Books::find($id);
+        $book = Books::findOrFail($id);
         if (Storage::disk("public")->exists("images/books/".$book->img)){
             Storage::disk("public")->delete("images/books/".$book->img);
         }
