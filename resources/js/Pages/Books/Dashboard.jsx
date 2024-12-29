@@ -96,7 +96,7 @@ export default function Dashboard({ books }) {
                                                     </td>
                                                     <td className="flex gap-8 px-6 py-4 text-sm font-medium leading-5 text-right whitespace-nowrap">
                                                         <a
-                                                            href="/admin/FormEdit"
+                                                            href={route('books.edit', book.id)}
                                                             className="text-indigo-600 hover:text-indigo-900"
                                                         >
                                                             Edit

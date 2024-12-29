@@ -84,7 +84,8 @@ class BooksController extends Controller
     public function edit(string $id)
     {
         $book = Books::findOrFail($id);
-        return view("books.edit", compact('book'));
+        return Inertia::render("Books/EditForm", compact('book'));
+        /*return view("books.edit", compact('book'));*/
     }
 
     /**
@@ -100,23 +101,32 @@ class BooksController extends Controller
             'page_count' => "required|numeric",
             'description' => "required",
             'price' => "required|numeric",
-            'img' => "required",
+            'img' => "image|mimes:jpeg,png,jpg,gif",
             /*'url' => "required",*/
         ]);
         $book = Books::findOrFail($id);
 
-        /*$book->title = $request->title;*/
-        /*$book->author = $request->author;*/
-        /*$book->publication_year = $request->publication_year;*/
-        /*$book->category = $request->category;*/
-        /*$book->page_count = $request->page_count;*/
-        /*$book->description = $request->description;*/
-        /*$book->price = $request->price;*/
-        /*$book->img = $request->img;*/
+        if ($request->hasFile('img')){
+            $image = $request->file('img');
+            $imagename = time() . "_" . $image->getClientOriginalName();
+            $image->storeAs('public/images/books', $imagename);
 
-        $book->update($request->all());
+            if (Storage::disk("public")->exists("images/books/".$book->img)){
+                Storage::disk("public")->delete("images/books/".$book->img);
+            }
 
-        /*$book->save();*/
+            $book->img = $imagename;
+        }
+
+        $book->title = $request->title;
+        $book->author = $request->author;
+        $book->publication_year = $request->publication_year;
+        $book->category = $request->category;
+        $book->page_count = $request->page_count;
+        $book->description = $request->description;
+        $book->price = $request->price;
+
+        $book->save();
         return redirect(route('books.index'));
     }
 
