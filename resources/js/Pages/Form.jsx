@@ -61,7 +61,7 @@ function App() {
 
                             <form onSubmit={book}>
                                 <div className="grid grid-cols-1 gap-6 mt-4">
-                                    <div className="flex flex-col w-[50%]">
+                                    <div className="flex flex-col">
                                         <label className="text-gray-700" htmlFor="title">
                                             Title Book
                                         </label>
@@ -75,7 +75,7 @@ function App() {
                                         />
                                     </div>
 
-                                    <div className="flex flex-col w-[50%]">
+                                    <div className="flex flex-col">
                                         <label className="text-gray-700" htmlFor="description">
                                             Description
                                         </label>
@@ -89,7 +89,7 @@ function App() {
                                         />
                                     </div>
 
-                                    <div className="flex flex-col w-[15%]">
+                                    <div className="flex flex-col">
                                         <label className="text-gray-700" htmlFor="category">
                                             Category
                                         </label>
@@ -108,7 +108,7 @@ function App() {
                                         </select>
                                     </div>
 
-                                    <div className="flex flex-col w-[50%]">
+                                    <div className="flex flex-col">
                                         <label className="text-gray-700" htmlFor="author">
                                             Author
                                         </label>
@@ -122,7 +122,7 @@ function App() {
                                         />
                                     </div>
 
-                                    <div className="flex flex-col w-[50%]">
+                                    <div className="flex flex-col">
                                         <label className="text-gray-700" htmlFor="pages">
                                             Pages
                                         </label>
@@ -136,7 +136,7 @@ function App() {
                                         />
                                     </div>
 
-                                    <div className="flex flex-col w-[50%]">
+                                    <div className="flex flex-col">
                                         <label className="text-gray-700" htmlFor="stock">
                                             Stock
                                         </label>
@@ -149,7 +149,7 @@ function App() {
                                             onChange={handleInputChange}
                                         />
                                     </div>
-                                    <div className="flex flex-col w-[50%]">
+                                    <div className="flex flex-col">
                                         <label className="text-gray-700" htmlFor="image">
                                             Image
                                         </label>

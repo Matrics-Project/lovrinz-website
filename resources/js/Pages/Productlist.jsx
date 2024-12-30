@@ -1,13 +1,14 @@
 import React from 'react';
 import Footer from '../components/Footer';
 import Navbar from '../components/Navbar';
+// import routes from '../route';
 
 function ProductList() {
     const products = [
-        { id: 1, title: 'Dilan 1990', price: '$50', author: 'Pidi Baiq' },
-        { id: 2, title: 'Dilan 1990', price: '$50', author: 'Pidi Baiq' },
-        { id: 3, title: 'Dilan 1990', price: '$50', author: 'Pidi Baiq' },
-        { id: 4, title: 'Dilan 1990', price: '$50', author: 'Pidi Baiq' },
+        { id: 1, title: 'Dilan 1990', author: 'Pidi Baiq' },
+        { id: 2, title: 'Dilan 1990', author: 'Pidi Baiq' },
+        { id: 3, title: 'Dilan 1990', author: 'Pidi Baiq' },
+        { id: 4, title: 'Dilan 1990', author: 'Pidi Baiq' },
     ];
     
     const handleGenreChange = (selectedGenre) => {
@@ -54,7 +55,7 @@ console.log("Selected genre:", selectedGenre);
                         </div>
                         <div className="flex justify-between items-center px-4 py-2 bg-gray-100">
                             <a
-                                href="/detailproduct"
+                                href='/detailproduct'
                                 className="px-4 py-2 bg-yellow-200 text-yellow-800 rounded hover:bg-yellow-300"
                             >
                                 Detail
