@@ -36,7 +36,7 @@ export default function Dashboard({ books }) {
                     <div>
                         <div className="text-red-700 flex justify-between items-center">
                             <h3 className="text-3xl font-medium text-gray-700">Dashboard</h3>
-                            <a className="text-gray-100 font-extrabold py-2 px-7 bg-green-300 rounded-lg" href={route('books.create')}>
+                            <a className="text-gray-100 font-extrabold py-2 px-7 bg-green-400 hover:bg-green-500 rounded-lg" href={route('books.create')}>
                                 Tambah Buku
                             </a>
                         </div>
@@ -61,7 +61,7 @@ export default function Dashboard({ books }) {
                                                     Pages
                                                 </th>
                                                 <th className="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-50">
-                                                    Stock
+                                                    Price
                                                 </th>
                                                 <th className="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-50">
                                                     Action
