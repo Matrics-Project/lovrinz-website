@@ -1,5 +1,4 @@
 import React from 'react';
-// import routes from '../routes'; // Menggunakan konfigurasi routes
 
 function Footer() {
     return (
@@ -21,4 +20,4 @@ function Footer() {
     );
 }
 
-export default Footer;50
+export default Footer;

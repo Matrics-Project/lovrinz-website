@@ -40,10 +40,12 @@ Route::get('/guest/productlist', function () {
     return Inertia::render('Productlist');
 })->name('product.list');
 
-Route::inertia('/guest/home', 'Home');
+// Route::get('/detailproduct/{id}', function ($id) {
+//     return Inertia::render('DetailProduct', ['id' => $id]);
+// })->name('product.detail');
 
-Route::get('/guest/detailproduct/{id}', function ($id) {
-    return Inertia::render('DetailProduct', ['id' => $id]);
+Route::get('/detailproduct', function () {
+    return Inertia::render('DetailProduct');
 })->name('product.detail');
 
 // Admin Routes
@@ -59,7 +61,7 @@ Route::get('/admin/form', function () {
     return Inertia::render('Form');
 })->name('admin.form');
 
-Route::get('/admin/formedit', function () {
+Route::get('/admin/FormEdit', function () {
     return Inertia::render('FormEdit');
 })->name('admin.formedit');
 

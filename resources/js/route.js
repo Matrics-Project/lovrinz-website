@@ -1,7 +1,7 @@
 const routes = {
     home: '/',
     productList: '/guest/productlist',
-    detailProduct: '/detailproduct',
+    // DetailProduct: '/detailproduct',
 };
 
 export default routes;

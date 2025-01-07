@@ -76,7 +76,7 @@ function App() {
 
                             <form onSubmit={book} encType="multipart/form-data">
                                 <div className="grid grid-cols-1 gap-6 mt-4">
-                                    <div className="flex flex-col w-[100%]">
+                                    <div className="flex flex-col">
                                         <label className="text-gray-700" htmlFor="title">
                                             Title Book
                                         </label>
@@ -90,7 +90,7 @@ function App() {
                                         />
                                     </div>
 
-                                    <div className="flex flex-col w-[100%]">
+                                    <div className="flex flex-col">
                                         <label className="text-gray-700" htmlFor="description">
                                             Description
                                         </label>
@@ -104,7 +104,7 @@ function App() {
                                         />
                                     </div>
 
-                                    <div className="flex flex-col w-max">
+                                    <div className="flex flex-col">
                                         <label className="text-gray-700" htmlFor="category">
                                             Category
                                         </label>
@@ -123,7 +123,7 @@ function App() {
                                         </select>
                                     </div>
 
-                                    <div className="flex flex-col w-[100%]">
+                                    <div className="flex flex-col">
                                         <label className="text-gray-700" htmlFor="author">
                                             Author
                                         </label>
@@ -151,7 +151,7 @@ function App() {
                                         />
                                     </div>
 
-                                    <div className="flex flex-col w-[100%]">
+                                    <div className="flex flex-col">
                                         <label className="text-gray-700" htmlFor="pages">
                                             Pages
                                         </label>
@@ -165,9 +165,9 @@ function App() {
                                         />
                                     </div>
 
-                                    <div className="flex flex-col w-[100%]">
-                                        <label className="text-gray-700" htmlFor="price">
-                                            Price
+                                    <div className="flex flex-col">
+                                        <label className="text-gray-700" htmlFor="stock">
+                                            Stock
                                         </label>
                                         <input
                                             className="w-full mt-2 border-gray-200 rounded-md focus:border-indigo-600 focus:ring focus:ring-opacity-40 focus:ring-indigo-500"
@@ -178,8 +178,7 @@ function App() {
                                             onChange={handleInputChange}
                                         />
                                     </div>
-
-                                    <div className="flex flex-col w-[100%]">
+                                    <div className="flex flex-col">
                                         <label className="text-gray-700" htmlFor="image">
                                             Image
                                         </label>
