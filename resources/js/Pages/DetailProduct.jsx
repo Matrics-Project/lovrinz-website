@@ -1,6 +1,6 @@
 import React from 'react';
 import Navbar from '../components/Navbar';
-import Footer from '../components/Footer';
+import Footer from '../components/footer';
 
 function DetailProduct() {
     const product = {
@@ -19,7 +19,7 @@ function DetailProduct() {
             <div className="container mx-auto py-6 px-4 grid grid-cols-1 md:grid-cols-2 gap-6">
                 {/* Image Section */}
                 <div className="flex justify-center items-center">
-                    <img src='/images/LOVRINZ3.png' alt='rawr' className="bg-gray-300 w-fit h-96 rounded"/>
+                    <img src='/images/dilan-1990.png' alt='rawr' className="bg-gray-300 w-fit h-96 rounded"/>
                 </div>
 
                 {/* Details Section */}
