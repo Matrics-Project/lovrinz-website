@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\BooksController;
 use App\Http\Controllers\ProfileController;
+use App\Models\Books;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -16,7 +17,8 @@ use Inertia\Inertia;
 /*    ]);*/
 /*});*/
 
-Route::resource('/books', BooksController::class)->middleware(['auth']);
+Route::resource('/books', BooksController::class, ['except' => ['show']])->middleware(['auth']);
+Route::resource('/books', BooksController::class, ['only' => ['show']]);
 
 Route::get('/test', function () {
 });
@@ -29,15 +31,21 @@ Route::inertia('/', 'Home');
 
 // Guest Routes
 Route::get('/', function () {
-    return Inertia::render('Home');
+    $books = Books::all();
+    return Inertia::render('Home', [
+        'books' => $books,
+    ]);
 })->name('home');
 
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::get('/guest/productlist', function () {
-    return Inertia::render('Productlist');
+Route::get('/productlist', function () {
+    $books = Books::all();
+    return Inertia::render('Productlist', [
+        'books' => $books,
+    ]);
 })->name('product.list');
 
 // Route::get('/detailproduct/{id}', function ($id) {

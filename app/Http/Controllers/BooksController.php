@@ -75,7 +75,8 @@ class BooksController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $book = Books::findOrFail($id);
+        return Inertia::render("Books/Detail", compact('book'));
     }
 
     /**

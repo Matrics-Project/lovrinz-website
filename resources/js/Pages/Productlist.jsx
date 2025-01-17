@@ -2,19 +2,15 @@ import React, { useState } from 'react';
 import Footer from '../components/Footer';
 import Navbar from '../components/Navbar';
 
-function ProductList() {
-  const products = [
-    { id: 1, title: 'Dilan 1990', author: 'Pidi Baiq', image: '/images/dilan-1990.png', genre: 'romance' },
-    { id: 2, title: 'Majnun', author: 'Anton Kurnia', image: '/images/coverbukumajnun.png', genre: 'fiction' },
-    { id: 3, title: 'The Psychology of Money', author: 'Morgan Housel', image: '/images/psychology_of_money.png', genre: 'non-fiction' },
-  ];
-
+function ProductList({ books }) {
   const [selectedGenre, setSelectedGenre] = useState(''); // State untuk menyimpan genre yang dipilih
+
+  const imagesUrl = window.location.origin + '/storage/images/books/'
 
   // Logika untuk memfilter produk berdasarkan genre
   const filteredProducts = selectedGenre
-    ? products.filter((product) => product.genre === selectedGenre)
-    : products;
+    ? books.filter((book) => book.category === selectedGenre)
+    : books;
 
   const handleGenreChange = (selectedGenre) => {
     setSelectedGenre(selectedGenre); // Update genre yang dipilih
@@ -54,7 +50,7 @@ function ProductList() {
             >
               {/* Gambar Produk */}
               <img
-                src={product.image}
+                src={imagesUrl + product.img}
                 alt={product.title}
                 className="w-full h-64 object-cover"
               />
@@ -64,13 +60,13 @@ function ProductList() {
                 <p className="text-gray-600 text-base mb-2">by {product.author}</p>
                 {/* <p className="text-blue-700 italic text-sm mb-2">{product.genre}</p> */}
                 <span className="inline-block bg-green-200 text-green-800 text-sm px-3 py-1 rounded mb-2">
-                        {product.genre}
+                        {product.category}
                     </span>
               </div>
               {/* Tombol WA dan Detail */}
               <div className="flex justify-between items-center px-4 py-3 bg-gray-100">
                 <a
-                  href="/detailproduct"
+                  href={`/books/${product.id}`}
                   className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
                 >
                   Detail
