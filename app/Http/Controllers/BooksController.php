@@ -44,7 +44,7 @@ class BooksController extends Controller
             'page_count' => "required|numeric",
             'description' => "required",
             'price' => "required|numeric",
-            'img' => "required|image|mimes:jpeg,png,jpg,gif",
+            'img' => "required|mimes:jpeg,png,jpg,gif,avif",
             /*'url' => "required",*/
         ]);
 
@@ -101,7 +101,7 @@ class BooksController extends Controller
             'page_count' => "required|numeric",
             'description' => "required",
             'price' => "required|numeric",
-            'img' => "image|mimes:jpeg,png,jpg,gif",
+            'img' => "mimes:jpeg,png,jpg,gif,avif",
             /*'url' => "required",*/
         ]);
         $book = Books::findOrFail($id);
