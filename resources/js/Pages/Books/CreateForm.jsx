@@ -144,6 +144,8 @@ function App() {
                                             <option value="science">Science</option>
                                             <option value="history">History</option>
                                             <option value="fantasy">Fantasy</option>
+                                            <option value="mystery">Mystery</option>
+                                            <option value="romance">Romance</option>
                                         </select>
                                         <InputError message={errors.category} />
                                     </div>

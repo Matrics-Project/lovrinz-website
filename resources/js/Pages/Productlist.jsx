@@ -37,6 +37,8 @@ function ProductList() {
             <option value="">All Genres</option>
             <option value="fiction">Fiction</option>
             <option value="non-fiction">Non-fiction</option>
+            <option value="science">Science</option>
+            <option value="history">History</option>
             <option value="fantasy">Fantasy</option>
             <option value="mystery">Mystery</option>
             <option value="romance">Romance</option>

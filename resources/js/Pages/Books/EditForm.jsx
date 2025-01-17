@@ -136,6 +136,8 @@ function App({ book: b }) {
                                             <option value="science">Science</option>
                                             <option value="history">History</option>
                                             <option value="fantasy">Fantasy</option>
+                                            <option value="mystery">Mystery</option>
+                                            <option value="romance">Romance</option>
                                         </select>
                                         <InputError message={errors.category} />
                                     </div>
@@ -169,6 +171,7 @@ function App({ book: b }) {
                                         />
                                         <InputError message={errors.publication_year} />
                                     </div>
+
                                     <div className="flex flex-col w-[100%]">
                                         <label className="text-gray-700" htmlFor="pages">
                                             Pages
