@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import Swal from 'sweetalert2'
 import withReactContent from 'sweetalert2-react-content'
+import InputError from '@/Components/InputError'
+import { usePage } from '@inertiajs/react'
 
 import Layout from '@/Components/Layout'
 import { router } from '@inertiajs/react'
@@ -16,6 +18,8 @@ function App() {
         price: '',
         image: '',
     })
+
+    const { errors } = usePage().props;
 
     const MySwal = withReactContent(Swal)
 
@@ -106,6 +110,7 @@ function App() {
                                             value={Book.title}
                                             onChange={handleInputChange}
                                         />
+                                        <InputError message={errors.title} />
                                     </div>
 
                                     <div className="flex flex-col w-[100%]">
@@ -120,6 +125,7 @@ function App() {
                                             rows="4"
                                             placeholder="Write a Description of The Book"
                                         />
+                                        <InputError message={errors.description} />
                                     </div>
 
                                     <div className="flex flex-col w-max">
@@ -139,6 +145,7 @@ function App() {
                                             <option value="history">History</option>
                                             <option value="fantasy">Fantasy</option>
                                         </select>
+                                        <InputError message={errors.category} />
                                     </div>
 
                                     <div className="flex flex-col w-[100%]">
@@ -153,6 +160,7 @@ function App() {
                                             value={Book.author}
                                             onChange={handleInputChange}
                                         />
+                                        <InputError message={errors.author} />
                                     </div>
 
                                     <div className="flex flex-col w-[100%]">
@@ -167,6 +175,7 @@ function App() {
                                             value={Book.publication_year}
                                             onChange={handleInputChange}
                                         />
+                                        <InputError message={errors.publication_year} />
                                     </div>
 
                                     <div className="flex flex-col w-[100%]">
@@ -181,6 +190,7 @@ function App() {
                                             value={Book.pages}
                                             onChange={handleInputChange}
                                         />
+                                        <InputError message={errors.page_count} />
                                     </div>
 
                                     <div className="flex flex-col w-[100%]">
@@ -195,6 +205,7 @@ function App() {
                                             value={Book.price}
                                             onChange={handleInputChange}
                                         />
+                                        <InputError message={errors.price} />
                                     </div>
                                     <div className="flex">
                                         <div className="flex flex-col w-[100%]">
@@ -209,6 +220,7 @@ function App() {
                                                 placeholder="pick the image of the book"
                                                 onChange={handleInputChange}
                                             />
+                                            <InputError message={errors.img} />
                                         </div>
                                         <img src="zero" id="bookImg" className="w-1/2 " alt=" " />
                                     </div>

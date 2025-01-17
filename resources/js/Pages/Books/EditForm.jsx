@@ -1,11 +1,12 @@
 import React, { useState } from 'react'
 import Swal from 'sweetalert2'
-import { router } from '@inertiajs/react'
+import { router, usePage } from '@inertiajs/react'
 import withReactContent from 'sweetalert2-react-content'
+import InputError from '@/Components/InputError'
 
 import Layout from '@/Components/Layout'
 function App({ book: b }) {
-    const [Book, setBook, errors] = useState({
+    const [Book, setBook] = useState({
         title: b.title,
         description: b.description,
         category: b.category,
@@ -15,6 +16,8 @@ function App({ book: b }) {
         price: b.price,
         image: '',
     })
+
+    const { errors } = usePage().props;
 
     const imagesUrl = window.location.origin + '/storage/images/books/'
 
@@ -99,6 +102,7 @@ function App({ book: b }) {
                                             value={Book.title}
                                             onChange={handleInputChange}
                                         />
+                                        <InputError message={errors.title} />
                                     </div>
 
                                     <div className="flex flex-col w-[100%]">
@@ -113,6 +117,7 @@ function App({ book: b }) {
                                             rows="4"
                                             placeholder="Write a Description of The Book"
                                         />
+                                        <InputError message={errors.description} />
                                     </div>
 
                                     <div className="flex flex-col w-max">
@@ -132,6 +137,7 @@ function App({ book: b }) {
                                             <option value="history">History</option>
                                             <option value="fantasy">Fantasy</option>
                                         </select>
+                                        <InputError message={errors.category} />
                                     </div>
 
                                     <div className="flex flex-col w-[100%]">
@@ -146,6 +152,7 @@ function App({ book: b }) {
                                             value={Book.author}
                                             onChange={handleInputChange}
                                         />
+                                        <InputError message={errors.author} />
                                     </div>
 
                                     <div className="flex flex-col w-[100%]">
@@ -160,6 +167,7 @@ function App({ book: b }) {
                                             value={Book.pages}
                                             onChange={handleInputChange}
                                         />
+                                        <InputError message={errors.page_count} />
                                     </div>
 
                                     <div className="flex flex-col w-[100%]">
@@ -174,6 +182,7 @@ function App({ book: b }) {
                                             value={Book.price}
                                             onChange={handleInputChange}
                                         />
+                                        <InputError message={errors.price} />
                                     </div>
                                     <div className="flex">
                                         <div className="flex flex-col w-[100%]">
@@ -188,6 +197,7 @@ function App({ book: b }) {
                                                 placeholder="pick the image of the book"
                                                 onChange={handleInputChange}
                                             />
+                                            <InputError message={errors.img} />
                                         </div>
                                         <img src={imagesUrl + b.img} id="bookImg" className="w-1/2" alt=" " />
                                     </div>
