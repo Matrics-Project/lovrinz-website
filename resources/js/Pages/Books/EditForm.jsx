@@ -156,6 +156,20 @@ function App({ book: b }) {
                                     </div>
 
                                     <div className="flex flex-col w-[100%]">
+                                        <label className="text-gray-700" htmlFor="publication_year">
+                                            Publication Year
+                                        </label>
+                                        <input
+                                            className="w-full mt-2 border-gray-200 rounded-md focus:border-indigo-600 focus:ring focus:ring-opacity-40 focus:ring-indigo-500"
+                                            type="number"
+                                            name="publication_year"
+                                            placeholder="Input the Publication Year"
+                                            value={Book.publication_year}
+                                            onChange={handleInputChange}
+                                        />
+                                        <InputError message={errors.publication_year} />
+                                    </div>
+                                    <div className="flex flex-col w-[100%]">
                                         <label className="text-gray-700" htmlFor="pages">
                                             Pages
                                         </label>
