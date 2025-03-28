@@ -16,13 +16,13 @@ function Navbar() {
                 <div className="flex space-x-6">
                     <Link 
                         href={routes.home} 
-                        className="text-gray-800 hover:text-teal-500 font-medium"
+                        className="text-gray-800 text-xl hover:text-teal-500 font-bold"
                     >
                         Home
                     </Link>
                     <Link 
                         href={routes.productList} 
-                        className="text-gray-800 hover:text-teal-500 font-medium"
+                        className="text-gray-800 text-xl hover:text-teal-500 font-bold"
                     >
                         Product List
                     </Link>
